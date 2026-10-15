@@ -4,7 +4,7 @@
  * Created: October 14, 2026
  * Input: puzzle1.txt through puzzle5.txt (or filenames supplied as arguments).
  * Output: Original puzzle, every valid solution, or "No solution found".
- * Collaborators: None reported; update this field if applicable.
+ * Collaborators: None
  * Sources: Claude (initial object-oriented structure), Gemini (comparison)
  * Attribution: Class separation and recursive backtracking adapted from Claude;
  *              input validation, empty-cell indexing, solution streaming.
@@ -42,7 +42,7 @@ public:
             }
             if (count == SIZE * SIZE) {            // already have 81 cells so this one is extra and the file is bad
                 error = "Puzzle has more than 81 cells";
-                return false;
+                return false; //returns false
             }
             parsed.cells[count / SIZE][count % SIZE] =
                 symbol == '_' ? EMPTY : symbol - '0'; // turn the char into an int
@@ -50,10 +50,10 @@ public:
         }
         if (count != SIZE * SIZE) {                // has to be a full 9x9 grid
             error = "Puzzle must contain exactly 81 cells";
-            return false;
+            return false; //returns false
         }
         *this = parsed;                            // everything was fine so copy it over
-        return true;
+        return true; //returns true
     }
 
     // checks if a number can go here without breaking the row col or box rule
